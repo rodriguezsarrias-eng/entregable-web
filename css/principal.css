@@ -1,0 +1,230 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 1fr auto;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    grid-template-areas:
+        "header"
+        "navtop"
+        "aside"
+        "main"
+        "footer";
+}
+
+header {
+    padding-top: 15%;
+    padding-bottom: 15%;
+    grid-area: header;
+    background: linear-gradient(270deg, #0d6efd, #6610f2, aqua);
+    animation: rgbBlue 10s ease infinite;
+    background-size: 400% 100%;
+    color: white;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.animate__animated.animate__fadeIn {
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-delay: 1000ms;
+}
+
+#titulo {
+    font-size: 450%;
+    margin: 20px;
+    animation-delay: 200ms;
+}
+
+#navtop {
+    grid-area: navtop;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar {
+    overflow: visible;
+}
+
+main {
+    grid-area: main;
+    overflow-x: hidden;
+    padding: 20px;
+    background: linear-gradient(to right,
+            #eaf4ff,
+            #d9ecff,
+            #c7e4ff,
+            #b5dcff,
+            #a3d4ff,
+            #55b0ff,
+            #3597ff);
+    background-size: 400% 100%;
+    animation: rgbBlue 12s ease infinite;
+    gap: 10px;
+    justify-content: center;
+}
+
+#titulo-resumen {
+    align-self: start;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+
+}
+
+#resumen {
+    background: linear-gradient(13deg, #0d6efd, aqua);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+
+}
+
+aside {
+    grid-area: aside;
+    background-color: #84aff0;
+
+}
+
+.carousel-caption {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 15px;
+    border-radius: 10px;
+    display: block !important;
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+    color: #1a1a1a;
+}
+
+.carousel-item img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+#menu {
+    flex-wrap: wrap;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.card img {
+    height: 180px;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.card img:hover {
+    opacity: 1;
+}
+
+.card {
+    display: flex;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.descripcion {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.descripcion.expandido {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+}
+
+.titulo-section {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+#carouselNoticias img {
+    height: 200px;
+    object-fit: cover;
+}
+
+#carouselNoticias .carousel-caption h6 {
+    color: black;
+}
+
+
+
+footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+@keyframes rgbBlue {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (min-width: 990px) {
+    main {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "seccion-resumen noticias"
+            "menu noticias";
+        gap: 20px;
+        padding: 20px;
+    }
+
+    #seccion-resumen {
+        grid-area: seccion-resumen;
+    }
+
+    #menu {
+        grid-area: menu;
+    }
+
+    #noticias {
+        grid-area: noticias;
+        width: 360px;
+    }
+}
